@@ -1,4 +1,4 @@
-const v4 = require("uuid/dist/esm-browser/v4");
+const {v4} = require("uuid");
 const {
   USER_TYPE,
   BOARD_TYPE,
@@ -6,7 +6,7 @@ const {
   PATH_USER,
   PATH_BOARD,
   PATH_TASK
-} = require('../common/constants')
+} = require('../data/constants')
 const user = require('../data/user.json')
 const board = require('../data/board.json')
 const task = require('../data/task.json')
@@ -49,6 +49,8 @@ const update = (typeData, id, data) => new Promise((resolve) => {
   const [db, path] = getDataType(typeData)
   const index = db.findIndex((p) => p.id === id)
 
+  if(index < 0) resolve(null)
+
   db[index] = {id, ...data}
   writeDataToFile(path, db);
 
@@ -61,7 +63,7 @@ const remove = (typeData, id) => new Promise((resolve) => {
 
   writeDataToFile(path, dbFiltered);
 
-  resolve()
+  resolve('is removed')
 })
 
 module.exports = {

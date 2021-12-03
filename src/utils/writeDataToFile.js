@@ -1,7 +1,8 @@
 const fs = require('fs')
 
-function writeDataToFile(filename, content) {
-  fs.writeFileSync(filename, JSON.stringify(content), 'utf8')
+function writeDataToFile(path, content) {
+  // eslint-disable-next-line no-path-concat
+  fs.writeFileSync(path, JSON.stringify(content), 'utf8')
 }
 
 
