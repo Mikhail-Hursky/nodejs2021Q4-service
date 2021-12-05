@@ -1,4 +1,3 @@
-const {v4} = require("uuid");
 const {
   USER_TYPE,
   BOARD_TYPE,
@@ -31,18 +30,18 @@ const findAll = (typeData) => new Promise((resolve) => {
 
 const findById = (typeData, id) => new Promise((resolve) => {
   const data = getDataType(typeData)[0].find(db => db.id === id)
+
   resolve(data)
 })
 
 const create = (typeData, data) => new Promise((resolve) => {
-  const newPerson = {id: v4(), ...data}
   const [db, path] = getDataType(typeData)
 
-  db.push(newPerson)
+  db.push(data)
 
   writeDataToFile(path, db);
 
-  resolve(newPerson)
+  resolve(data)
 })
 
 const update = (typeData, id, data) => new Promise((resolve) => {

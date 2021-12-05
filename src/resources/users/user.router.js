@@ -36,7 +36,7 @@ router.route('/').post(async (req, res) => {
     return;
   }
 
-  const user = await usersService.createUser({name, login, password})
+  const user = await usersService.createUser(new User(name, login, password))
 
   res.type('application/json').status(201).json(User.toResponse(user));
 });
