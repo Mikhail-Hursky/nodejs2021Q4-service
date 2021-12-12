@@ -1,7 +1,7 @@
 import fastify from 'fastify';
-import userRoute from './resources/user/user.route'
-import boardRoute from './resources/board/board.route'
-import taskRoute from './resources/task/task.route'
+import userRoute from './resources/users/user.route'
+import boardRoute from './resources/boards/board.route'
+import taskRoute from './resources/tasks/task.route'
 import config from './common/config';
 
 const app = fastify({ logger: true });

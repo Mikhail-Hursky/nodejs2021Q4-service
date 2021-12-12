@@ -3,8 +3,8 @@ import { v4 as uuid } from 'uuid';
 export class User {
   /**
    * User class represents a custom structure of in-memory database instance
-   * The user represents a person that has a name and login-password pair to login
-   * Every user has its unique identificator created by v4 uuid
+   * The users represents a person that has a name and login-password pair to login
+   * Every users has its unique identificator created by v4 uuid
    */
   id: string;
 

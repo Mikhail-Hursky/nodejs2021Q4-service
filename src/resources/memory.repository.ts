@@ -1,7 +1,7 @@
-import {User}  from './user/user.model';
-import {Board} from './board/board.model';
-import {Column} from './board/column.model';
-import {Task} from "./task/task.model";
+import {User}  from './users/user.model';
+import {Board} from './boards/board.model';
+import {Column} from './boards/column.model';
+import {Task} from "./tasks/task.model";
 
 const usersArr: User[] = [];
 const boardsArr: Board[] = [];
@@ -14,7 +14,7 @@ const tasksArr: Task[] = [];
 // utils
 
 /**
- * Delete a specific task which id matches the param
+ * Delete a specific tasks which id matches the param
  * @param boardId id of Board
  * @returns void
  */
@@ -32,7 +32,7 @@ function deleteTasksByBoardId(boardId: string): void {
   }
 }
 /**
- * Set all user's tasks userId to null, representing a deletion
+ * Set all users's tasks userId to null, representing a deletion
  * @param userId id of User
  * @returns true when done
  */
@@ -65,9 +65,9 @@ function getAllUsers(): User[] {
   return usersArr;
 }
 /**
- * get a specific user by it's unique id
- * @param id user identificator
- * @returns user on success, or false if not found 
+ * get a specific users by it's unique id
+ * @param id users identificator
+ * @returns users on success, or false if not found
  */
 function getUserById(id: string): User | false {
   for (let i = 0; i < usersArr.length; i += 1) {
@@ -79,8 +79,8 @@ function getUserById(id: string): User | false {
   return false;
 }
 /**
- * Add a user into a database with specific values
- * @param name a name of a user
+ * Add a users into a database with specific values
+ * @param name a name of a users
  * @param login a login in string
  * @param password a password, keeps private
  * @returns newly created User instance
@@ -91,8 +91,8 @@ function createNewUser(name: string, login: string, password: string): User {
   return user;
 }
 /**
- * delete a user by it's unique identificator
- * @param id user identificator
+ * delete a users by it's unique identificator
+ * @param id users identificator
  * @returns true on success, false if not found
  */
 function deleteUserById(id: string): boolean {
@@ -111,9 +111,9 @@ function deleteUserById(id: string): boolean {
   return false;
 }
 /**
- * update a user and its stored values by its unique identifier
- * @param id user identificator
- * @param name new name for a user
+ * update a users and its stored values by its unique identifier
+ * @param id users identificator
+ * @param name new name for a users
  * @param login new login in string
  * @param password new password, keeps private
  * @returns an updated User instance
@@ -144,9 +144,9 @@ function getAllBoards(): Board[] {
   return boardsArr;
 }
 /**
- * get a specific board by it's unique id
- * @param id board identificator
- * @returns board on success, or false if not found 
+ * get a specific boards by it's unique id
+ * @param id boards identificator
+ * @returns boards on success, or false if not found
  */
 function getBoardById(id: string): Board | boolean {
   for (let i = 0; i < boardsArr.length; i += 1) {
@@ -158,8 +158,8 @@ function getBoardById(id: string): Board | boolean {
   return false;
 }
 /**
- * create new board with columns
- * @param title a title for the board
+ * create new boards with columns
+ * @param title a title for the boards
  * @param columns an array of Column instances
  * @returns newly created Board instance
  */
@@ -169,8 +169,8 @@ function createNewBoard(title: string, columns: Column[]): Board {
   return board;
 }
 /**
- * delete a board using unique identificator
- * @param id unique board identificator
+ * delete a boards using unique identificator
+ * @param id unique boards identificator
  * @returns true on success, false on not found
  */
 function deleteBoardById(id: string) {
@@ -190,9 +190,9 @@ function deleteBoardById(id: string) {
   return false;
 }
 /**
- * update a board by its unique identificator
- * @param id unique board identificator
- * @param title new title for the board
+ * update a boards by its unique identificator
+ * @param id unique boards identificator
+ * @param title new title for the boards
  * @param columns new array of Column instances
  * @returns updated Board instance, or false on not found
  */
@@ -213,7 +213,7 @@ function updateBoardById(
 }
 /**
  * get all tasks stored in database
- * @param boardId unique board identificator
+ * @param boardId unique boards identificator
  * @returns an array of all Task instances in database
  */
 function getAllTasks(boardId: string): Task[] {
@@ -227,10 +227,10 @@ function getAllTasks(boardId: string): Task[] {
   return resultArr;
 }
 /**
- * get task by its unique identificator and board unique identificator
- * @param id unique task identificator
- * @param boardId unique board identificator
- * @returns task instance on success, or false on not found
+ * get tasks by its unique identificator and boards unique identificator
+ * @param id unique tasks identificator
+ * @param boardId unique boards identificator
+ * @returns tasks instance on success, or false on not found
  */
 function getTaskById(id: string, boardId: string): Task | boolean {
   for (let i = 0; i < tasksArr.length; i += 1) {
@@ -242,12 +242,12 @@ function getTaskById(id: string, boardId: string): Task | boolean {
   return false;
 }
 /**
- * create new task and save it to database
- * @param title a title for the task
- * @param order an order of the task
+ * create new tasks and save it to database
+ * @param title a title for the tasks
+ * @param order an order of the tasks
  * @param description tasks description
- * @param userId unique user identificator
- * @param boardId unique board identificator
+ * @param userId unique users identificator
+ * @param boardId unique boards identificator
  * @param columnId unique column identificator
  * @returns newly created Task instance
  */
@@ -264,9 +264,9 @@ function createNewTask(
   return task;
 }
 /**
- * delete a task by its unique identificator and its board identificator 
- * @param id unique task identificator
- * @param boardId unique board identificator
+ * delete a tasks by its unique identificator and its boards identificator
+ * @param id unique tasks identificator
+ * @param boardId unique boards identificator
  * @returns true on success, false on not found
  */
 function deleteTaskById(id: string, boardId: string):boolean {
@@ -284,11 +284,11 @@ function deleteTaskById(id: string, boardId: string):boolean {
   return false;
 }
 /**
- * update task by its unique identificator and its board identificator
- * @param id unique task identificator
- * @param title a title of the task
- * @param order an order of the task
- * @param description task description
+ * update tasks by its unique identificator and its boards identificator
+ * @param id unique tasks identificator
+ * @param title a title of the tasks
+ * @param order an order of the tasks
+ * @param description tasks description
  * @param userId unique User identificator
  * @param boardId unique Board identificator
  * @param columnId unique Column identificator
